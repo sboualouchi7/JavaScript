@@ -1,0 +1,40 @@
+<div id="container">Users:</div>
+<ul class="list">
+    <li>John</li>
+    <li>Pete</li>
+</ul>
+<ul class="list">
+    <li>David</li>
+    <li>Sarah</li>
+    <li>Dan</li>
+</ul>
+<script>
+   document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('container');
+    const lists = document.querySelectorAll('.list');
+
+    
+    lists[0].children[1].textContent = 'Richard';
+    lists[1].children[1].remove();
+
+    lists.forEach(list => {
+        list.children[0].textContent = 'GitHub Copilot';
+        list.classList.add('student_list');
+    });
+
+    lists[0].classList.add('university', 'attendance');
+
+    container.style = 'background-color: lightblue; padding: 10px;';
+    document.body.style.fontSize = '16px';
+
+    lists[1].children[1]?.style.display = 'none';
+    lists[0].children[1].style.border = '1px solid black';
+
+    const users = Array.from(lists)
+        .flatMap(list => Array.from(list.children).map(li => li.textContent));
+    
+    if (container.style.backgroundColor === 'lightblue') {
+        alert(`Hello ${users.join(' and ')}`);
+    }
+});
+</script>
